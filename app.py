@@ -35,8 +35,6 @@ class FrenchLearningApp:
 
         self.score_label = tk.Label(root, text="Score: 0", font=("Arial", 14))
         self.score_label.pack(pady=10)
-
-        # Initialize game variables
         self.score = 0
         self.next_word()
 
