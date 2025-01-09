@@ -42,7 +42,6 @@ class FrenchLearningApp:
         self.next_word()
 
     def load_data(self):
-        """Load the CSV file containing the word pairs."""
         try:
             data = pd.read_csv("Dictionary.csv")
             self.words = dict(zip(data['English'], data['French']))
@@ -70,7 +69,6 @@ class FrenchLearningApp:
         self.translation_var.set("")
 
     def check_translation(self):
-        """Check if the user's translation is correct."""
         
         user_translation = self.translation_var.get().strip()
         if not user_translation:
