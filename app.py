@@ -5,10 +5,7 @@ import pandas as pd
 
 class FrenchLearningApp:
     def __init__(self, root):
-        # Load data
         self.load_data()
-
-        # Initialize the main window
         self.root = root
         self.root.title("French Learning App")
         self.root.geometry("500x400")
