@@ -11,29 +11,34 @@ class FrenchLearningApp:
         # Initialize the main window
         self.root = root
         self.root.title("French Learning App")
+        self.root.geometry("500x400")
+        self.root.config(bg="#3C6D8C")
+
+        main_frame = tk.Frame(root, bg="#3C6D8C")
+        main_frame.pack(pady=20)
 
         # UI Elements
-        self.word_label = tk.Label(root, text="English Word:", font=("Arial", 14))
+        self.word_label = tk.Label(root, text="English Word:", font=("Arial", 18, "bold"), bg="#3C6D8C", fg="black", highlightthickness=0, highlightbackground="#3C6D8C", highlightcolor="#3C6D8C")
         self.word_label.pack(pady=10)
 
         self.word_var = tk.StringVar()
-        self.word_entry = tk.Entry(root, textvariable=self.word_var, font=("Arial", 14), state='readonly')
+        self.word_entry = tk.Entry(root, textvariable=self.word_var, fg="white", font=("Arial", 14), state='readonly', readonlybackground="#3C6D8C", highlightthickness=1, highlightbackground="black", highlightcolor="black")
         self.word_entry.pack(pady=10)
 
-        self.translation_label = tk.Label(root, text="French Translation:", font=("Arial", 14))
+        self.translation_label = tk.Label(root, text="French Translation:", font=("Arial", 18, "bold"), bg="#3C6D8C", fg="black", highlightthickness=0, highlightbackground="#3C6D8C", highlightcolor="#3C6D8C")
         self.translation_label.pack(pady=10)
 
         self.translation_var = tk.StringVar()
-        self.translation_entry = tk.Entry(root, textvariable=self.translation_var, font=("Arial", 14))
+        self.translation_entry = tk.Entry(root, textvariable=self.translation_var, font=("Arial", 14), bg="#3C6D8C", fg="white", highlightthickness=1, highlightbackground="black", highlightcolor="black")
         self.translation_entry.pack(pady=10)
 
-        self.check_button = tk.Button(root, text="Check", command=self.check_translation, font=("Arial", 14))
+        self.check_button = tk.Button(root, text="Check", command=self.check_translation, font=("Arial", 14), bg="#3C6D8C", fg="black", highlightthickness=0, bd=0, highlightbackground="#3C6D8C", highlightcolor="#3C6D8C")
         self.check_button.pack(pady=10)
 
-        self.next_button = tk.Button(root, text="Next", command=self.next_word, font=("Arial", 14))
+        self.next_button = tk.Button(root, text="Next", command=self.next_word, font=("Arial", 14), bg="#3C6D8C", fg="black", highlightthickness=0, bd=0, highlightbackground="#3C6D8C", highlightcolor="#3C6D8C")
         self.next_button.pack(pady=10)
 
-        self.score_label = tk.Label(root, text="Score: 0", font=("Arial", 14))
+        self.score_label = tk.Label(root, text="Score: 0", font=("Arial", 14, "bold"), bg="#3C6D8C", fg="black", highlightthickness=0, highlightbackground="#3C6D8C", highlightcolor="#3C6D8C")
         self.score_label.pack(pady=10)
         
         self.score = 0
@@ -79,7 +84,7 @@ class FrenchLearningApp:
             messagebox.showinfo("Correct", "Correct! Well done!")
             self.score += 1
             self.score_label.config(text=f"Score: {self.score}")
-            del self.words[self.current_word]  # Remove word from pool
+            del self.words[self.current_word] 
             self.next_word()
         else:
             messagebox.showerror("Incorrect", f"Incorrect! The correct translation is '{correct_translation}'.")
